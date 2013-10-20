@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (BOOL)IOS7;
++ (BOOL)iPhone5;
+
 @end

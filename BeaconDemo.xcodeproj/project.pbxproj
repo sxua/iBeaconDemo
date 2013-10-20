@@ -21,6 +21,9 @@
 		A0318AC918130DAE00AE869A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0318AAB18130DAE00AE869A /* UIKit.framework */; };
 		A0318AD118130DAE00AE869A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0318ACF18130DAE00AE869A /* InfoPlist.strings */; };
 		A0318AD318130DAE00AE869A /* BeaconDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0318AD218130DAE00AE869A /* BeaconDemoTests.m */; };
+		A0318ADD18130EED00AE869A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0318ADC18130EED00AE869A /* CoreLocation.framework */; };
+		A0318AE1181320E500AE869A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0318AE0181320E500AE869A /* AVFoundation.framework */; };
+		A0318AE41814420900AE869A /* CoreBluetoothController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0318AE31814420900AE869A /* CoreBluetoothController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		A0318ACE18130DAE00AE869A /* BeaconDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeaconDemoTests-Info.plist"; sourceTree = "<group>"; };
 		A0318AD018130DAE00AE869A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A0318AD218130DAE00AE869A /* BeaconDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconDemoTests.m; sourceTree = "<group>"; };
+		A0318ADC18130EED00AE869A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A0318AE0181320E500AE869A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A0318AE21814420900AE869A /* CoreBluetoothController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreBluetoothController.h; sourceTree = "<group>"; };
+		A0318AE31814420900AE869A /* CoreBluetoothController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreBluetoothController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0318AE1181320E500AE869A /* AVFoundation.framework in Frameworks */,
+				A0318ADD18130EED00AE869A /* CoreLocation.framework in Frameworks */,
 				A0318AAA18130DAE00AE869A /* CoreGraphics.framework in Frameworks */,
 				A0318AAC18130DAE00AE869A /* UIKit.framework in Frameworks */,
 				A0318AA818130DAE00AE869A /* Foundation.framework in Frameworks */,
@@ -101,6 +110,8 @@
 		A0318AA618130DAE00AE869A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0318AE0181320E500AE869A /* AVFoundation.framework */,
+				A0318ADC18130EED00AE869A /* CoreLocation.framework */,
 				A0318AA718130DAE00AE869A /* Foundation.framework */,
 				A0318AA918130DAE00AE869A /* CoreGraphics.framework */,
 				A0318AAB18130DAE00AE869A /* UIKit.framework */,
@@ -115,6 +126,8 @@
 				A0318AB618130DAE00AE869A /* AppDelegate.h */,
 				A0318AB718130DAE00AE869A /* AppDelegate.m */,
 				A0318AB918130DAE00AE869A /* Main.storyboard */,
+				A0318AE21814420900AE869A /* CoreBluetoothController.h */,
+				A0318AE31814420900AE869A /* CoreBluetoothController.m */,
 				A0318ABC18130DAE00AE869A /* ViewController.h */,
 				A0318ABD18130DAE00AE869A /* ViewController.m */,
 				A0318ABF18130DAE00AE869A /* Images.xcassets */,
@@ -199,6 +212,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Unteleported;
 				TargetAttributes = {
+					A0318AA318130DAE00AE869A = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					A0318AC418130DAE00AE869A = {
 						TestTargetID = A0318AA318130DAE00AE869A;
 					};
@@ -252,6 +272,7 @@
 				A0318ABE18130DAE00AE869A /* ViewController.m in Sources */,
 				A0318AB818130DAE00AE869A /* AppDelegate.m in Sources */,
 				A0318AB418130DAE00AE869A /* main.m in Sources */,
+				A0318AE41814420900AE869A /* CoreBluetoothController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,11 +397,13 @@
 		A0318AD718130DAE00AE869A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconDemo/BeaconDemo-Prefix.pch";
 				INFOPLIST_FILE = "BeaconDemo/BeaconDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -389,11 +412,13 @@
 		A0318AD818130DAE00AE869A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconDemo/BeaconDemo-Prefix.pch";
 				INFOPLIST_FILE = "BeaconDemo/BeaconDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +485,7 @@
 				A0318AD818130DAE00AE869A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0318AD918130DAE00AE869A /* Build configuration list for PBXNativeTarget "BeaconDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +494,7 @@
 				A0318ADB18130DAE00AE869A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
